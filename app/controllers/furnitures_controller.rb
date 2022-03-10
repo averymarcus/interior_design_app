@@ -1,28 +1,23 @@
 class FurnituresController < ApplicationController
   before_action :set_furniture, only: %i[show edit update destroy]
 
-  # GET /furnitures
   def index
     @q = Furniture.ransack(params[:q])
     @furnitures = @q.result(distinct: true).includes(:room, :comments,
                                                      :likes, :design, :home).page(params[:page]).per(10)
   end
 
-  # GET /furnitures/1
   def show
     @like = Like.new
     @comment = Comment.new
   end
 
-  # GET /furnitures/new
   def new
     @furniture = Furniture.new
   end
 
-  # GET /furnitures/1/edit
   def edit; end
 
-  # POST /furnitures
   def create
     @furniture = Furniture.new(furniture_params)
 
@@ -38,7 +33,6 @@ class FurnituresController < ApplicationController
     end
   end
 
-  # PATCH/PUT /furnitures/1
   def update
     if @furniture.update(furniture_params)
       redirect_to @furniture, notice: "Furniture was successfully updated."
@@ -47,7 +41,6 @@ class FurnituresController < ApplicationController
     end
   end
 
-  # DELETE /furnitures/1
   def destroy
     @furniture.destroy
     message = "Furniture was successfully deleted."
@@ -60,12 +53,10 @@ class FurnituresController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_furniture
     @furniture = Furniture.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def furniture_params
     params.require(:furniture).permit(:room_id, :image)
   end
