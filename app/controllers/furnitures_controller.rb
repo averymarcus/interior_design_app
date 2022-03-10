@@ -3,14 +3,11 @@ class FurnituresController < ApplicationController
 
   def index
     @q = Furniture.ransack(params[:q])
-    @furnitures = @q.result(distinct: true).includes(:room, :comments,
-                                                     :likes, :design, :home).page(params[:page]).per(10)
+    @furnitures = @q.result(distinct: true).includes(:room, :design,
+                                                     :home).page(params[:page]).per(10)
   end
 
-  def show
-    @like = Like.new
-    @comment = Comment.new
-  end
+  def show; end
 
   def new
     @furniture = Furniture.new

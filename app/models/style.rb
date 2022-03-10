@@ -1,4 +1,6 @@
 class Style < ApplicationRecord
+  mount_base64_uploader :image, ImageUploader
+
   # Direct associations
 
   has_many   :rooms,
