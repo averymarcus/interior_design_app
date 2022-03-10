@@ -6,7 +6,7 @@ class StyleResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :rooms
+  has_many :rooms
 
   # Indirect associations
 
@@ -17,5 +17,4 @@ class StyleResource < ApplicationResource
       end
     end
   end
-
 end

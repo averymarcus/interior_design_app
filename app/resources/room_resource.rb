@@ -18,5 +18,4 @@ class RoomResource < ApplicationResource
              resource: FurnitureResource
 
   # Indirect associations
-
 end

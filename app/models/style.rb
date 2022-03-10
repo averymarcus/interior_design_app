@@ -2,13 +2,13 @@ class Style < ApplicationRecord
   # Direct associations
 
   has_many   :rooms,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :furniture_items,
-             :through => :rooms,
-             :source => :furniture_items
+             through: :rooms,
+             source: :furniture_items
 
   # Validations
 
@@ -17,5 +17,4 @@ class Style < ApplicationRecord
   def to_s
     style_name
   end
-
 end

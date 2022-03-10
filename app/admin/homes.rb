@@ -1,6 +1,5 @@
 ActiveAdmin.register Home do
-
- permit_params :user_id, :home_address, :home_image
+  permit_params :user_id, :home_address, :home_image
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register Home do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

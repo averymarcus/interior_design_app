@@ -4,22 +4,22 @@ class Furniture < ApplicationRecord
   # Direct associations
 
   has_many   :likes,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :comments,
-             :dependent => :destroy
+             dependent: :destroy
 
   belongs_to :room
 
   # Indirect associations
 
   has_one    :home,
-             :through => :room,
-             :source => :home
+             through: :room,
+             source: :home
 
   has_one    :design,
-             :through => :room,
-             :source => :design
+             through: :room,
+             source: :design
 
   # Validations
 
@@ -28,5 +28,4 @@ class Furniture < ApplicationRecord
   def to_s
     room.to_s
   end
-
 end

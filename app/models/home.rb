@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Home < ApplicationRecord
   before_validation :geocode_home_address
 
   def geocode_home_address
-    if self.home_address.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.home_address)}"
+    if home_address.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(home_address)}"
 
       raw_data = open(url).read
 
@@ -24,13 +24,13 @@ class Home < ApplicationRecord
   # Direct associations
 
   has_many   :rooms,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :furniture_items,
-             :through => :rooms,
-             :source => :furniture_items
+             through: :rooms,
+             source: :furniture_items
 
   # Validations
 
@@ -39,5 +39,4 @@ class Home < ApplicationRecord
   def to_s
     user_id
   end
-
 end

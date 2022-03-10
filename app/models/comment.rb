@@ -2,8 +2,8 @@ class Comment < ApplicationRecord
   # Direct associations
 
   belongs_to :furniture_post,
-             :class_name => "Furniture",
-             :foreign_key => "furniture_id"
+             class_name: "Furniture",
+             foreign_key: "furniture_id"
 
   belongs_to :user
 
@@ -16,5 +16,4 @@ class Comment < ApplicationRecord
   def to_s
     furniture_post.to_s
   end
-
 end

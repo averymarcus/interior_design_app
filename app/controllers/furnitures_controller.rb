@@ -1,10 +1,11 @@
 class FurnituresController < ApplicationController
-  before_action :set_furniture, only: [:show, :edit, :update, :destroy]
+  before_action :set_furniture, only: %i[show edit update destroy]
 
   # GET /furnitures
   def index
     @q = Furniture.ransack(params[:q])
-    @furnitures = @q.result(:distinct => true).includes(:room, :comments, :likes, :design, :home).page(params[:page]).per(10)
+    @furnitures = @q.result(distinct: true).includes(:room, :comments,
+                                                     :likes, :design, :home).page(params[:page]).per(10)
   end
 
   # GET /furnitures/1
@@ -19,17 +20,16 @@ class FurnituresController < ApplicationController
   end
 
   # GET /furnitures/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /furnitures
   def create
     @furniture = Furniture.new(furniture_params)
 
     if @furniture.save
-      message = 'Furniture was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Furniture was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @furniture, notice: message
       end
@@ -41,7 +41,7 @@ class FurnituresController < ApplicationController
   # PATCH/PUT /furnitures/1
   def update
     if @furniture.update(furniture_params)
-      redirect_to @furniture, notice: 'Furniture was successfully updated.'
+      redirect_to @furniture, notice: "Furniture was successfully updated."
     else
       render :edit
     end
@@ -51,22 +51,22 @@ class FurnituresController < ApplicationController
   def destroy
     @furniture.destroy
     message = "Furniture was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to furnitures_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_furniture
-      @furniture = Furniture.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def furniture_params
-      params.require(:furniture).permit(:room_id, :image)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_furniture
+    @furniture = Furniture.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def furniture_params
+    params.require(:furniture).permit(:room_id, :image)
+  end
 end

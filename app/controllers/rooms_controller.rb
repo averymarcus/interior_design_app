@@ -1,10 +1,11 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: %i[show edit update destroy]
 
   # GET /rooms
   def index
     @q = Room.ransack(params[:q])
-    @rooms = @q.result(:distinct => true).includes(:furniture_items, :home, :design).page(params[:page]).per(10)
+    @rooms = @q.result(distinct: true).includes(:furniture_items, :home,
+                                                :design).page(params[:page]).per(10)
   end
 
   # GET /rooms/1
@@ -18,17 +19,16 @@ class RoomsController < ApplicationController
   end
 
   # GET /rooms/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /rooms
   def create
     @room = Room.new(room_params)
 
     if @room.save
-      message = 'Room was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Room was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @room, notice: message
       end
@@ -40,7 +40,7 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1
   def update
     if @room.update(room_params)
-      redirect_to @room, notice: 'Room was successfully updated.'
+      redirect_to @room, notice: "Room was successfully updated."
     else
       render :edit
     end
@@ -50,22 +50,22 @@ class RoomsController < ApplicationController
   def destroy
     @room.destroy
     message = "Room was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to rooms_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_room
-      @room = Room.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def room_params
-      params.require(:room).permit(:room_name, :home_id, :style_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_room
+    @room = Room.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def room_params
+    params.require(:room).permit(:room_name, :home_id, :style_id)
+  end
 end
