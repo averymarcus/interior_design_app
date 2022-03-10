@@ -67,5 +67,27 @@
       <% end %>
     <% end %>
   </div>
+  <div class="form-group">
+    <% home_name_class = "form-control" %>
+    <% home_name_was_invalid = home.errors.include?(:home_name) %>
+
+    <% if was_validated %>
+      <% if home_name_was_invalid %>
+        <% home_name_class << " is-invalid" %>
+      <% else %>
+        <% home_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :home_name %>
+    <%= f.text_field :home_name, class: home_name_class, placeholder: "Enter home name" %>
+    <% if home_name_was_invalid %>
+      <% home.errors.full_messages_for(:home_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

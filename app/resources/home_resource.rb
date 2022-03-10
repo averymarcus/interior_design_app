@@ -5,6 +5,7 @@ class HomeResource < ApplicationResource
   attribute :user_id, :integer
   attribute :home_address, :string
   attribute :home_image, :string
+  attribute :home_name, :string
 
   # Direct associations
 
