@@ -1,6 +1,8 @@
 class Furniture < ApplicationRecord
   # Direct associations
 
+  belongs_to :room
+
   # Indirect associations
 
   # Validations

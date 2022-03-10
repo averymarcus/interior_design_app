@@ -1,6 +1,10 @@
 class Room < ApplicationRecord
   # Direct associations
 
+  has_many   :furniture_items,
+             :class_name => "Furniture",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
