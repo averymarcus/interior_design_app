@@ -11,6 +11,10 @@ class Furniture < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :home,
+             :through => :room,
+             :source => :home
+
   has_one    :design,
              :through => :room,
              :source => :design

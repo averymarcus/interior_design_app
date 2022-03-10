@@ -6,6 +6,10 @@ class Home < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :furniture_items,
+             :through => :rooms,
+             :source => :furniture_items
+
   # Validations
 
   # Scopes

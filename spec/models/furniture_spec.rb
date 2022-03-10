@@ -14,6 +14,8 @@ RSpec.describe Furniture, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_one(:home) }
+
     it { should have_one(:design) }
 
     end
