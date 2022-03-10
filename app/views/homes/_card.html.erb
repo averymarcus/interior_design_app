@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Home #<%= home.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= home.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Home address</dt>
+      <!-- Display home_address start -->
+      <dd><%= home.home_address %></dd>
+      <!-- Display home_address end -->
+
+      <dt>Home image</dt>
+      <!-- Display home_image start -->
+      <dd><%= home.home_image %></dd>
+      <!-- Display home_image end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back home, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link home start -->
+      <div class="col">
+        <%= link_to edit_home_url(home), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link home end -->
+
+      <!-- Delete link home start -->
+      <div class="col">
+        <%= link_to home, method: :delete, data: { confirm: "Do you really want to delete this home?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link home end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(home.updated_at) %> ago
+  </div>
+</div>
