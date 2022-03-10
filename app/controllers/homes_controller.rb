@@ -3,7 +3,8 @@ class HomesController < ApplicationController
 
   # GET /homes
   def index
-    @homes = Home.page(params[:page]).per(10)
+    @q = Home.ransack(params[:q])
+    @homes = @q.result(:distinct => true).includes(:rooms, :furniture_items).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@homes.where.not(:home_address_latitude => nil)) do |home, marker|
       marker.lat home.home_address_latitude
       marker.lng home.home_address_longitude

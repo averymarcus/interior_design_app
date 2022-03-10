@@ -3,7 +3,8 @@ class RoomsController < ApplicationController
 
   # GET /rooms
   def index
-    @rooms = Room.page(params[:page]).per(10)
+    @q = Room.ransack(params[:q])
+    @rooms = @q.result(:distinct => true).includes(:furniture_items, :home, :design).page(params[:page]).per(10)
   end
 
   # GET /rooms/1
