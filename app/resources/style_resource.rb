@@ -10,4 +10,12 @@ class StyleResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :furniture_items, resource: FurnitureResource do
+    assign_each do |style, furnitures|
+      furnitures.select do |f|
+        f.id.in?(style.furniture_items.map(&:id))
+      end
+    end
+  end
+
 end
