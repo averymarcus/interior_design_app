@@ -8,6 +8,7 @@ class HomesController < ApplicationController
 
   # GET /homes/1
   def show
+    @room = Room.new
   end
 
   # GET /homes/new

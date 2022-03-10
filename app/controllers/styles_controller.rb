@@ -8,6 +8,7 @@ class StylesController < ApplicationController
 
   # GET /styles/1
   def show
+    @room = Room.new
   end
 
   # GET /styles/new
