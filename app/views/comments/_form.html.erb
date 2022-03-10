@@ -16,7 +16,7 @@
 
     <%= f.label :furniture_id %>
     <!-- Input for furniture_id start -->
-    <%= f.number_field :furniture_id, class: furniture_class, placeholder: "Enter furniture" %>
+    <%= f.collection_select :furniture_id, Furniture.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for furniture_id end -->
     <% if furniture_was_invalid %>
       <% comment.errors.full_messages_for(:furniture).each do |message| %>
