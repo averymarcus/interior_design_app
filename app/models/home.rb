@@ -1,6 +1,9 @@
 class Home < ApplicationRecord
   # Direct associations
 
+  has_many   :rooms,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
