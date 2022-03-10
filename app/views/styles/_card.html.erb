@@ -8,6 +8,11 @@
       <dt>Style name</dt>
       <dd><%= style.style_name %></dd>
 
+      <dt>Image</dt>
+      <dd>
+        <%= cl_image_tag @style.image, class: "img-fluid" %>
+      </dd>
+
     </dl>
 
     <div class="row">

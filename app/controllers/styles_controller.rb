@@ -47,6 +47,6 @@ class StylesController < ApplicationController
   end
 
   def style_params
-    params.require(:style).permit(:style_name)
+    params.require(:style).permit(:style_name, :image)
   end
 end

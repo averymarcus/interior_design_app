@@ -3,6 +3,7 @@ class StyleResource < ApplicationResource
   attribute :created_at, :datetime, writable: false
   attribute :updated_at, :datetime, writable: false
   attribute :style_name, :string
+  attribute :image, :string
 
   # Direct associations
 
