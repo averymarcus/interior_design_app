@@ -1,6 +1,9 @@
 class Furniture < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   belongs_to :room
 
   # Indirect associations

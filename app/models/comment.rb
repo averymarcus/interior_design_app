@@ -1,6 +1,10 @@
 class Comment < ApplicationRecord
   # Direct associations
 
+  belongs_to :furniture_post,
+             :class_name => "Furniture",
+             :foreign_key => "furniture_id"
+
   belongs_to :user
 
   # Indirect associations
