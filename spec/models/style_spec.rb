@@ -10,6 +10,8 @@ RSpec.describe Style, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:furniture_items) }
+
     end
 
     describe "Validations" do

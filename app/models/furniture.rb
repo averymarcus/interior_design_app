@@ -11,6 +11,10 @@ class Furniture < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :design,
+             :through => :room,
+             :source => :design
+
   # Validations
 
   # Scopes
