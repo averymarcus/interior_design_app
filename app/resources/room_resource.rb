@@ -8,6 +8,9 @@ class RoomResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :furniture_items,
+             resource: FurnitureResource
+
   # Indirect associations
 
 end
