@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Furniture</dt>
       <!-- Display furniture_id start -->
-      <dd><%= comment.furniture_id %></dd>
+      <dd>
+        <% if @comment.furniture_post.present? %>
+          <%= link_to comment.furniture_post, comment.furniture_post %>
+        <% end %>
+      </dd>
       <!-- Display furniture_id end -->
 
       <dt>Comment</dt>
@@ -17,7 +21,11 @@
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= comment.user_id %></dd>
+      <dd>
+        <% if @comment.user.present? %>
+          <%= link_to comment.user, comment.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

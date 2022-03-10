@@ -12,12 +12,20 @@
 
       <dt>Home</dt>
       <!-- Display home_id start -->
-      <dd><%= room.home_id %></dd>
+      <dd>
+        <% if @room.home.present? %>
+          <%= link_to room.home, room.home %>
+        <% end %>
+      </dd>
       <!-- Display home_id end -->
 
       <dt>Style</dt>
       <!-- Display style_id start -->
-      <dd><%= room.style_id %></dd>
+      <dd>
+        <% if @room.design.present? %>
+          <%= link_to room.design, room.design %>
+        <% end %>
+      </dd>
       <!-- Display style_id end -->
 
     </dl>
