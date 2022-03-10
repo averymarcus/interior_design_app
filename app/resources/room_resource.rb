@@ -8,6 +8,10 @@ class RoomResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :design,
+             resource: StyleResource,
+             foreign_key: :style_id
+
   belongs_to :home
 
   has_many   :furniture_items,
