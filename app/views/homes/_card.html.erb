@@ -12,7 +12,11 @@
 
       <dt>Home address</dt>
       <!-- Display home_address start -->
-      <dd><%= home.home_address %></dd>
+      <dd>
+        <div>
+          <%= render partial: "homes/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display home_address end -->
 
       <dt>Home image</dt>

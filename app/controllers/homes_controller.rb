@@ -4,6 +4,11 @@ class HomesController < ApplicationController
   # GET /homes
   def index
     @homes = Home.all
+    @location_hash = Gmaps4rails.build_markers(@homes.where.not(:home_address_latitude => nil)) do |home, marker|
+      marker.lat home.home_address_latitude
+      marker.lng home.home_address_longitude
+      marker.infowindow "<h5><a href='/homes/#{home.id}'>#{home.user_id}</a></h5><small>#{home.home_address_formatted_address}</small>"
+    end
   end
 
   # GET /homes/1
