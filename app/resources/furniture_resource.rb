@@ -15,12 +15,19 @@ class FurnitureResource < ApplicationResource
 
   # Indirect associations
 
+  has_one    :home
   has_one    :design,
              resource: StyleResource
 
   filter :style_id, :integer do
     eq do |scope, value|
       scope.eager_load(:design).where(:rooms => {:style_id => value})
+    end
+  end
+
+  filter :home_id, :integer do
+    eq do |scope, value|
+      scope.eager_load(:home).where(:rooms => {:home_id => value})
     end
   end
 end

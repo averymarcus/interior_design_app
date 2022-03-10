@@ -12,4 +12,12 @@ class HomeResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :furniture_items, resource: FurnitureResource do
+    assign_each do |home, furnitures|
+      furnitures.select do |f|
+        f.id.in?(home.furniture_items.map(&:id))
+      end
+    end
+  end
+
 end
