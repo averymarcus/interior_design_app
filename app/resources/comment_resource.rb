@@ -8,6 +8,10 @@ class CommentResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :furniture_post,
+             resource: FurnitureResource,
+             foreign_key: :furniture_id
+
   belongs_to :user
 
   # Indirect associations
