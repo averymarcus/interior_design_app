@@ -8,6 +8,8 @@ class HomeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :rooms
+
   # Indirect associations
 
 end
