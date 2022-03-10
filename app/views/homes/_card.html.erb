@@ -17,7 +17,9 @@
 
       <dt>Home image</dt>
       <!-- Display home_image start -->
-      <dd><%= home.home_image %></dd>
+      <dd>
+        <%= cl_image_tag @home.home_image, class: "img-fluid" %>
+      </dd>
       <!-- Display home_image end -->
 
     </dl>

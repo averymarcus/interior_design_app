@@ -68,7 +68,7 @@
 
     <%= f.label :home_image %>
     <!-- Input for home_image start -->
-    <%= f.text_field :home_image, class: home_image_class, placeholder: "Enter home image" %>
+    <%= f.file_field :home_image, class: "form-control" %>
     <!-- Input for home_image end -->
     <% if home_image_was_invalid %>
       <% home.errors.full_messages_for(:home_image).each do |message| %>

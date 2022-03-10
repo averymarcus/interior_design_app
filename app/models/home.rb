@@ -1,4 +1,6 @@
 class Home < ApplicationRecord
+  mount_base64_uploader :home_image, HomeImageUploader
+
   # Direct associations
 
   has_many   :rooms,
