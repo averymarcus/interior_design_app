@@ -4,6 +4,8 @@ RSpec.describe Room, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:design) }
+
     it { should belong_to(:home) }
 
     it { should have_many(:furniture_items) }
