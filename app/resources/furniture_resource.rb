@@ -7,6 +7,8 @@ class FurnitureResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :likes
+
   has_many   :comments
 
   belongs_to :room
