@@ -5,10 +5,6 @@ class HomesController < ApplicationController
     @q = Home.ransack(params[:q])
     @homes = @q.result(distinct: true).includes(:rooms,
                                                 :furniture_items).page(params[:page]).per(10)
-    @location_hash = Gmaps4rails.build_markers(@homes.where.not(home_address_latitude: nil)) do |home, marker|
-      marker.lat home.home_address_latitude
-      marker.lng home.home_address_longitude
-    end
   end
 
   def show
@@ -51,6 +47,6 @@ class HomesController < ApplicationController
   end
 
   def home_params
-    params.require(:home).permit(:user_id, :home_address, :home_image)
+    params.require(:home).permit(:user_id, :home_name, :home_owner)
   end
 end

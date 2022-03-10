@@ -8,9 +8,5 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :likes
-
-  has_many   :comments
-
   # Indirect associations
 end

@@ -3,6 +3,7 @@ class CreateFurnitures < ActiveRecord::Migration[6.0]
     create_table :furnitures do |t|
       t.integer :room_id
       t.string :image
+      t.string :furniture_name
 
       t.timestamps
     end
