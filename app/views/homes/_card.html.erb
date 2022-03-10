@@ -6,25 +6,19 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd><%= home.user_id %></dd>
-      <!-- Display user_id end -->
 
       <dt>Home address</dt>
-      <!-- Display home_address start -->
       <dd>
         <div>
           <%= render partial: "homes/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display home_address end -->
 
       <dt>Home image</dt>
-      <!-- Display home_image start -->
       <dd>
         <%= cl_image_tag @home.home_image, class: "img-fluid" %>
       </dd>
-      <!-- Display home_image end -->
 
     </dl>
 
@@ -33,21 +27,17 @@
         <%= link_to_show_or_back home, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link home start -->
       <div class="col">
         <%= link_to edit_home_url(home), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link home end -->
 
-      <!-- Delete link home start -->
       <div class="col">
         <%= link_to home, method: :delete, data: { confirm: "Do you really want to delete this home?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link home end -->
     </div>
   </div>
 

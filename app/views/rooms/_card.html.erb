@@ -6,27 +6,21 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Room name</dt>
-      <!-- Display room_name start -->
       <dd><%= room.room_name %></dd>
-      <!-- Display room_name end -->
 
       <dt>Home</dt>
-      <!-- Display home_id start -->
       <dd>
         <% if @room.home.present? %>
           <%= link_to room.home, room.home %>
         <% end %>
       </dd>
-      <!-- Display home_id end -->
 
       <dt>Style</dt>
-      <!-- Display style_id start -->
       <dd>
         <% if @room.design.present? %>
           <%= link_to room.design, room.design %>
         <% end %>
       </dd>
-      <!-- Display style_id end -->
 
     </dl>
 
@@ -35,21 +29,17 @@
         <%= link_to_show_or_back room, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link room start -->
       <div class="col">
         <%= link_to edit_room_url(room), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link room end -->
 
-      <!-- Delete link room start -->
       <div class="col">
         <%= link_to room, method: :delete, data: { confirm: "Do you really want to delete this room?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link room end -->
     </div>
   </div>
 

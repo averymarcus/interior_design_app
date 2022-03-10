@@ -1,7 +1,6 @@
 <% was_validated = room.errors.any? %>
 
 <%= form_with(model: room, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for room_name start -->
   <div class="form-group">
     <% room_name_class = "form-control" %>
     <% room_name_was_invalid = room.errors.include?(:room_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :room_name %>
-    <!-- Input for room_name start -->
     <%= f.text_field :room_name, class: room_name_class, placeholder: "Enter room name" %>
-    <!-- Input for room_name end -->
     <% if room_name_was_invalid %>
       <% room.errors.full_messages_for(:room_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for room_name end -->
-  <!-- Label and input for home_id start -->
   <div class="form-group">
     <% home_class = "form-control" %>
     <% home_was_invalid = room.errors.include?(:home) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :home_id %>
-    <!-- Input for home_id start -->
     <%= f.collection_select :home_id, Home.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for home_id end -->
     <% if home_was_invalid %>
       <% room.errors.full_messages_for(:home).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for home_id end -->
-  <!-- Label and input for style_id start -->
   <div class="form-group">
     <% style_class = "form-control" %>
     <% style_was_invalid = room.errors.include?(:style) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :style_id %>
-    <!-- Input for style_id start -->
     <%= f.collection_select :style_id, Style.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for style_id end -->
     <% if style_was_invalid %>
       <% room.errors.full_messages_for(:style).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for style_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

@@ -6,20 +6,16 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Room</dt>
-      <!-- Display room_id start -->
       <dd>
         <% if @furniture.room.present? %>
           <%= link_to furniture.room, furniture.room %>
         <% end %>
       </dd>
-      <!-- Display room_id end -->
 
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd>
         <%= cl_image_tag @furniture.image, class: "img-fluid" %>
       </dd>
-      <!-- Display image end -->
 
     </dl>
 
@@ -28,21 +24,17 @@
         <%= link_to_show_or_back furniture, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link furniture start -->
       <div class="col">
         <%= link_to edit_furniture_url(furniture), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link furniture end -->
 
-      <!-- Delete link furniture start -->
       <div class="col">
         <%= link_to furniture, method: :delete, data: { confirm: "Do you really want to delete this furniture?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link furniture end -->
     </div>
   </div>
 

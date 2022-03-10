@@ -1,32 +1,18 @@
-<!-- Form room start -->
 <%= form_with(model: @room, local: true) do |f| %>
-<!-- Form room end -->
 
-  <!-- Label and input for room_name start -->
   <div class="form-group">
     <%= f.label :room_name %>
 
-    <!-- Input for room_name start -->
     <%= f.text_field :room_name, class: "form-control" %>
-    <!-- Input for room_name end -->
   </div>
-  <!-- Label and input for room_name end -->
 
-  <!-- Label and input for home_id start -->
-  <!-- Input for home_id start -->
   <%= f.hidden_field :home_id, value: @home.id %>
-  <!-- Input for home_id end -->
-  <!-- Label and input for home_id end -->
 
-  <!-- Label and input for style_id start -->
   <div class="form-group">
     <%= f.label :style_id %>
 
-    <!-- Input for style_id start -->
     <%= f.collection_select :style_id, Style.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for style_id end -->
   </div>
-  <!-- Label and input for style_id end -->
 
   <%= f.submit "Create room", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
