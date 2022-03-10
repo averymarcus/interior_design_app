@@ -42,7 +42,7 @@
 
     <%= f.label :home_id %>
     <!-- Input for home_id start -->
-    <%= f.number_field :home_id, class: home_class, placeholder: "Enter home" %>
+    <%= f.collection_select :home_id, Home.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for home_id end -->
     <% if home_was_invalid %>
       <% room.errors.full_messages_for(:home).each do |message| %>
