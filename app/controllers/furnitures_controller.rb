@@ -3,7 +3,7 @@ class FurnituresController < ApplicationController
 
   # GET /furnitures
   def index
-    @furnitures = Furniture.all
+    @furnitures = Furniture.page(params[:page]).per(10)
   end
 
   # GET /furnitures/1
