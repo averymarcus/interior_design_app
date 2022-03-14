@@ -3,12 +3,6 @@ class Furniture < ApplicationRecord
 
   # Direct associations
 
-  has_many   :likes,
-             dependent: :destroy
-
-  has_many   :comments,
-             dependent: :destroy
-
   belongs_to :room
 
   # Indirect associations
@@ -16,10 +10,6 @@ class Furniture < ApplicationRecord
   has_one    :home,
              through: :room,
              source: :home
-
-  has_one    :design,
-             through: :room,
-             source: :design
 
   # Validations
 

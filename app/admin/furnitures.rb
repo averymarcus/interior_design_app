@@ -1,5 +1,5 @@
 ActiveAdmin.register Furniture do
-  permit_params :room_id, :image
+  permit_params :room_id, :image, :furniture_name
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

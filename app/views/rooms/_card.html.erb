@@ -16,11 +16,10 @@
       </dd>
 
       <dt>Style</dt>
-      <dd>
-        <% if @room.design.present? %>
-          <%= link_to room.design, room.design %>
-        <% end %>
-      </dd>
+      <dd><%= room.style_id %></dd>
+
+      <dt>Style name</dt>
+      <dd><%= room.style_name %></dd>
 
     </dl>
 

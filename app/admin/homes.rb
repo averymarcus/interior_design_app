@@ -1,5 +1,5 @@
 ActiveAdmin.register Home do
-  permit_params :user_id, :home_address, :home_image
+  permit_params :user_id, :home_name, :home_owner
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
