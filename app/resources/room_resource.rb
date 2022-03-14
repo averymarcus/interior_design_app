@@ -4,7 +4,6 @@ class RoomResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :room_name, :string
   attribute :home_id, :integer
-  attribute :style_id, :integer
   attribute :style_name, :string
 
   # Direct associations
