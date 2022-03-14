@@ -4,12 +4,9 @@ class FurnitureResource < ApplicationResource
   attribute :updated_at, :datetime, writable: false
   attribute :room_id, :integer
   attribute :image, :string
+  attribute :furniture_name, :string
 
   # Direct associations
-
-  has_many   :likes
-
-  has_many   :comments
 
   belongs_to :room
 
