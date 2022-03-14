@@ -49,7 +49,6 @@ gem "carrierwave-base64"
 gem "cloudinary"
 gem "coffee-rails"
 gem "devise", "~> 4.7.2"
-gem "gmaps4rails"
 gem "graphiti", "~> 1.2"
 gem "graphiti-rails", github: "firstdraft/graphiti-rails", branch: "develop"
 gem "ideas_generators", github: "firstdraft/ideas_generators"
@@ -59,7 +58,6 @@ gem "shoulda-matchers"
 gem "sprockets", "~> 3.7"
 gem "sprockets-rails", require: "sprockets/railtie"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-gem "underscore-rails"
 gem "vandal_ui", "~> 0.4"
 gem "web_git", github: "firstdraft/web_git", group: :development
 

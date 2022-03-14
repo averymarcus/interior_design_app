@@ -2,6 +2,11 @@
   <p class="lead">Narrow results:</p>
 
   <div class="form-group">
+    <%= f.label :furniture_name_cont, "Furniture name contains" %>
+    <%= f.text_field :furniture_name_cont, :class => "form-control", :placeholder => "Furniture name contains" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :created_at, "Created at" %>
     <div class="row">
       <div class='col-md-6 mb-1'>
@@ -45,11 +50,6 @@
   <div class="form-group">
     <%= f.label :room_room_name_cont, "Room room_name contains" %>
     <%= f.text_field :room_room_name_cont, :class => "form-control", :placeholder => "Room room_name contains" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :design_style_name_cont, "Design style_name contains" %>
-    <%= f.text_field :design_style_name_cont, :class => "form-control", :placeholder => "Design style_name contains" %>
   </div>
 
   <div class="form-group">

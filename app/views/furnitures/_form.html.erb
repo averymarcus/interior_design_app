@@ -45,5 +45,27 @@
       <% end %>
     <% end %>
   </div>
+  <div class="form-group">
+    <% furniture_name_class = "form-control" %>
+    <% furniture_name_was_invalid = furniture.errors.include?(:furniture_name) %>
+
+    <% if was_validated %>
+      <% if furniture_name_was_invalid %>
+        <% furniture_name_class << " is-invalid" %>
+      <% else %>
+        <% furniture_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :furniture_name %>
+    <%= f.text_field :furniture_name, class: furniture_name_class, placeholder: "Enter furniture name" %>
+    <% if furniture_name_was_invalid %>
+      <% furniture.errors.full_messages_for(:furniture_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

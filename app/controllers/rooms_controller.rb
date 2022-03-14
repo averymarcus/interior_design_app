@@ -3,8 +3,8 @@ class RoomsController < ApplicationController
 
   def index
     @q = Room.ransack(params[:q])
-    @rooms = @q.result(distinct: true).includes(:furniture_items, :home,
-                                                :design).page(params[:page]).per(10)
+    @rooms = @q.result(distinct: true).includes(:furniture_items,
+                                                :home).page(params[:page]).per(10)
   end
 
   def show
@@ -57,6 +57,6 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:room_name, :home_id, :style_id)
+    params.require(:room).permit(:room_name, :home_id, :style_id, :style_name)
   end
 end

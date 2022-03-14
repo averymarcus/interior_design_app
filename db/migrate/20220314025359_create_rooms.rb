@@ -4,6 +4,7 @@ class CreateRooms < ActiveRecord::Migration[6.0]
       t.string :room_name
       t.integer :home_id
       t.integer :style_id
+      t.string :style_name
 
       t.timestamps
     end

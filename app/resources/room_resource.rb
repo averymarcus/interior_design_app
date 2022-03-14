@@ -5,12 +5,9 @@ class RoomResource < ApplicationResource
   attribute :room_name, :string
   attribute :home_id, :integer
   attribute :style_id, :integer
+  attribute :style_name, :string
 
   # Direct associations
-
-  belongs_to :design,
-             resource: StyleResource,
-             foreign_key: :style_id
 
   belongs_to :home
 

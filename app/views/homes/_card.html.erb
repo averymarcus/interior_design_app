@@ -8,17 +8,11 @@
       <dt>User</dt>
       <dd><%= home.user_id %></dd>
 
-      <dt>Home address</dt>
-      <dd>
-        <div>
-          <%= render partial: "homes/one_photo_map" %>
-        </div>
-      </dd>
+      <dt>Home name</dt>
+      <dd><%= home.home_name %></dd>
 
-      <dt>Home image</dt>
-      <dd>
-        <%= cl_image_tag @home.home_image, class: "img-fluid" %>
-      </dd>
+      <dt>Home owner</dt>
+      <dd><%= home.home_owner %></dd>
 
     </dl>
 
